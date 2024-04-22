@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TP3.Models.Cinema.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Movies</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success" >Create New</a>
+    <a asp-action="SeachByTitle" class=" ms-5 btn btn-outline-secondary">Search By Title </a>
+    <a asp-action="SearchByGenre" class="btn btn-outline-secondary">Search By Genre </a>
+
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producer.Id)
+            </td>
+            <td>
+                <a asp-action="Edit"  class="text-decoration-none" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" class="text-decoration-none"  asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="text-decoration-none"  asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+         <a asp-action="MoviesAndTheirProds" class="text-decoration-none" > MOVIES AND THEIR PRODS</a>
+     </tbody>
+</table>

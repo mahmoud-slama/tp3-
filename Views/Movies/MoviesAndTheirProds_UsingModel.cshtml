@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TP3.Models.Cinema.ProdMovie>
+
+@{
+    ViewData["Title"] = "MoviesAndTheirProds_UsingModel";
+}
+
+<h1>MoviesAndTheirProds_UsingModel</h1>
+
+<table class="table">
+    <threa>
+        <tr>
+          
+            <th>
+                Title
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Nationality
+            </th>
+           
+        </tr>
+    </threa>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mGenre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pNat)
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

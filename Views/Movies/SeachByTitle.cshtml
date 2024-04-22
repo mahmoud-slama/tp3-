@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TP3.Models.Cinema.Movie>
+
+
+@{
+    ViewData["Title"] = "SearchByTitle";
+}
+
+<h1>SearchByTitle</h1>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Title: @Html.TextBox("search") <br />
+        <input type="submit" value="Search" class="btn mt-2 btn-primary" />
+    </p>
+}
+
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProducerId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProducerId)
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
